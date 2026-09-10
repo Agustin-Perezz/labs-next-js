@@ -12,8 +12,6 @@ test("CSR page shows heading and status region", async ({ page }) => {
 
   await expect(page).toHaveTitle(CSR_TITLE_PATTERN);
   await expect(page.getByRole("heading", { name: CSR_HEADING })).toBeVisible();
-  // The status live region is unnamed (its accessible name comes only from
-  // aria-label/labelledby, not child text), so we match by role alone.
   await expect(page.getByRole("status")).toBeVisible();
   await expect(
     page.getByRole("heading", { name: QUOTE_HEADING }),
@@ -27,13 +25,10 @@ test("CSR status region settles into success or error state", async ({
 
   const statusRegion = page.getByRole("status");
 
-  // Loading message disappears once the fetch resolves (success or error).
   await expect(statusRegion.getByText(LOADING_TEXT_PATTERN)).toBeHidden({
     timeout: SETTLE_TIMEOUT_MS,
   });
 
-  // Either a blockquote (success) or an error alert is a valid outcome,
-  // since api.github.com may be rate-limited in CI.
   const blockquote = statusRegion.locator("blockquote");
   const errorAlert = statusRegion.getByRole("alert");
 
