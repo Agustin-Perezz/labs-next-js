@@ -1,7 +1,7 @@
 # next-scaffold
 
-[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=Agustin-Perezz_next-scaffold&metric=alert_status&token=5ef88f4ca9ec87efb39e7b315d9ad4cbc4b255f6)](https://sonarcloud.io/summary/new_code?id=Agustin-Perezz_next-scaffold)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Agustin-Perezz_next-scaffold&metric=coverage&token=5ef88f4ca9ec87efb39e7b315d9ad4cbc4b255f6)](https://sonarcloud.io/summary/new_code?id=Agustin-Perezz_next-scaffold)
+[![Quality gate status](https://sonarcloud.io/api/project_badges/measure?project=Agustin-Perezz_labs-next-js&metric=alert_status&token=5ef88f4ca9ec87efb39e7b315d9ad4cbc4b255f6)](https://sonarcloud.io/summary/new_code?id=Agustin-Perezz_labs-next-js)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=Agustin-Perezz_labs-next-js&metric=coverage&token=5ef88f4ca9ec87efb39e7b315d9ad4cbc4b255f6)](https://sonarcloud.io/summary/new_code?id=Agustin-Perezz_labs-next-js)
 
 A production-ready [Next.js](https://nextjs.org) starter. It keeps server and client boundaries explicit. It colocates data fetching with Server Actions and pushes interactivity to the component leaves. The scaffold follows a shift-left approach. Fast feedback (lint, typecheck, unit tests + coverage) runs first. Then SonarCloud analysis imports the coverage report. Then the production build runs. The expensive E2E suite runs last. This order catches issues early and cheaply.
 
