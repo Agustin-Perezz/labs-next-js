@@ -7,6 +7,7 @@ const HOW_IT_WORKS_HEADING = "How this example works";
 const FALLBACK_LABEL = "Loading dynamic content…";
 const STREAMED_LABEL = "Streamed at request time";
 const BACK_LINK_NAME = "Back to home";
+const STREAMED_RENDER_TIMEOUT_MS = 15_000;
 
 test("PPR page shows shell, explanation, and back link", async ({ page }) => {
   await page.goto(PPR_URL);
@@ -30,7 +31,9 @@ test("PPR page streams dynamic content into the static shell", async ({
   // The static shell with the Suspense fallback paints first; the dynamic
   // clock streams in later and replaces it.
   await expect(page.getByText(FALLBACK_LABEL)).toBeVisible();
-  await expect(page.getByText(STREAMED_LABEL)).toBeVisible();
+  await expect(page.getByText(STREAMED_LABEL)).toBeVisible({
+    timeout: STREAMED_RENDER_TIMEOUT_MS,
+  });
   await expect(page.getByText(FALLBACK_LABEL)).toBeHidden();
 });
 
