@@ -1,5 +1,7 @@
 import { randomUUID } from "node:crypto";
 
+import { connection } from "next/server";
+
 const TIME_LOCALE = "en-US" as const;
 
 const TIME_FORMAT_OPTIONS = {
@@ -14,6 +16,9 @@ export type ServerTimeSnapshot = {
 };
 
 export async function getCurrentServerTime(): Promise<ServerTimeSnapshot> {
+  // Opt out of prerendering: this must run on every request so each response
+  // carries a fresh timestamp and request id.
+  await connection();
   const now = new Date();
   return {
     iso: now.toISOString(),
