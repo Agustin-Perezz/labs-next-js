@@ -1,7 +1,7 @@
 import { PendingBadge } from "./pending-badge";
 
 type TodoItemProps = {
-  id: number;
+  id: string;
   text: string;
   pending?: boolean;
 };

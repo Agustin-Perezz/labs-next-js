@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 
 // Pretend this is your DB
-let todos = [{ id: 1, text: "Learn Next.js", done: false }];
+let todos = [{ id: crypto.randomUUID(), text: "Learn Next.js", done: false }];
 
 // Texts containing this marker make addTodo fail, to demo the error path
 const FAILURE_MARKER = "[fail]";
@@ -17,7 +17,7 @@ export async function addTodo(text: string) {
     throw new Error("Failed to add todo");
   }
 
-  const newTodo = { id: Date.now(), text, done: false };
+  const newTodo = { id: crypto.randomUUID(), text, done: false };
   todos = [...todos, newTodo];
 
   revalidatePath("/todos");

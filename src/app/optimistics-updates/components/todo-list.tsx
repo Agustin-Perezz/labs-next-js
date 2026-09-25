@@ -7,7 +7,7 @@ import { TodoError } from "./todo-error";
 import { TodoItem } from "./todo-item";
 import { useTodoActions } from "./use-todo-actions";
 
-type Todo = { id: number; text: string; done: boolean };
+type Todo = { id: string; text: string; done: boolean };
 
 export default function TodoList({ initialTodos }: { initialTodos: Todo[] }) {
   const formRef = useRef<HTMLFormElement>(null);

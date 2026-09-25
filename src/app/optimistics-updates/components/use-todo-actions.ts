@@ -3,7 +3,7 @@
 import { useOptimistic, useState } from "react";
 import { addTodo } from "../actions";
 
-type Todo = { id: number; text: string; done: boolean };
+type Todo = { id: string; text: string; done: boolean };
 type OptimisticTodo = Todo & { pending?: boolean };
 type UseTodoActionsResult = {
   error: string | null;
@@ -21,7 +21,12 @@ export function useTodoActions(
     todos,
     (state, newTodoText: string): OptimisticTodo[] => [
       ...state,
-      { id: Math.random(), text: newTodoText, done: false, pending: true },
+      {
+        id: crypto.randomUUID(),
+        text: newTodoText,
+        done: false,
+        pending: true,
+      },
     ],
   );
 
